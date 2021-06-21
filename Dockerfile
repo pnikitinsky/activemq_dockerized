@@ -1,6 +1,6 @@
 FROM openjdk:8-jre-alpine
 
-ENV ACTIVEMQ_VERSION 5.16.2
+ENV ACTIVEMQ_VERSION 5.14.3
 ENV ACTIVEMQ apache-activemq-$ACTIVEMQ_VERSION
 ENV ACTIVEMQ_HOME /opt/activemq
 
@@ -13,7 +13,7 @@ RUN apk add --update curl && \
     adduser -S -H -G activemq -h $ACTIVEMQ_HOME activemq && \
     chown -R activemq:activemq /opt/$ACTIVEMQ && \
     chown -h activemq:activemq $ACTIVEMQ_HOME
-
+RUN  sed -i "s|127.0.0.1|0.0.0.0|g"
 EXPOSE 1883
 EXPOSE 5672
 EXPOSE 8161
