@@ -4,9 +4,7 @@ ENV ACTIVEMQ_VERSION 5.14.3
 ENV ACTIVEMQ activemq-all-$ACTIVEMQ_VERSION.jar
 ENV ACTIVEMQ_HOME /opt/activemq
 COPY ./$ACTIVEMQ $ACTIVEMQ_HOME
-RUN apk add --update curl && \
-    rm -rf /var/cache/apk/* && \
-    mkdir -p /opt && \
+RUN mkdir -p /opt && \
     addgroup -S activemq && \
     adduser -S -H -G activemq -h $ACTIVEMQ_HOME activemq && \
     chown -R activemq:activemq /opt/$ACTIVEMQ && \
