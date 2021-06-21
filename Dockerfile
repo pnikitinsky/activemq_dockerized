@@ -14,7 +14,12 @@ RUN apk add --update curl && \
     chown -R activemq:activemq /opt/$ACTIVEMQ && \
     chown -h activemq:activemq $ACTIVEMQ_HOME
 
-EXPOSE 1883 5672 8161 61613 61614 61616
+EXPOSE 1883
+EXPOSE 5672
+EXPOSE 8161
+EXPOSE 61613
+EXPOSE 61614
+EXPOSE 61616
 
 USER activemq
 WORKDIR $ACTIVEMQ_HOME
