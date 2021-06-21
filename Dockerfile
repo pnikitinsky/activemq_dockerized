@@ -7,7 +7,6 @@ COPY ./$ACTIVEMQ $ACTIVEMQ_HOME
 RUN apk add --update curl && \
     rm -rf /var/cache/apk/* && \
     mkdir -p /opt && \
-    curl -s -S https://archive.apache.org/dist/activemq/$ACTIVEMQ_VERSION/$ACTIVEMQ-bin.tar.gz | tar -xvz -C /opt && \
     addgroup -S activemq && \
     adduser -S -H -G activemq -h $ACTIVEMQ_HOME activemq && \
     chown -R activemq:activemq /opt/$ACTIVEMQ && \
